@@ -1,7 +1,7 @@
 import unittest
 from unittest import TestCase
 
-from Function import fib, concat
+from Function import fib, concat, make_incrementor
 
 
 class Test(TestCase):
@@ -19,6 +19,9 @@ class Test(TestCase):
 
     def test_concat(self):
         self.assertEqual(concat("earth", "mars", "venus"), 'earth/mars/venus')
+
+    def test_increment(self):
+        self.assertEqual(make_incrementor(42)(0), 42)
 
 
 if __name__ == '__main__':

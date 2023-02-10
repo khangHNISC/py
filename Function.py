@@ -37,3 +37,15 @@ def ask_ok(prompt, retries=4, reminder='Please try again!'):
 # Arbitrary arguments list
 def concat(*args, sep="/"):
     return sep.join(args)
+
+
+# lambda expression
+def make_incrementor(n):
+    return lambda x: x + n
+
+
+# more
+def f(ham: str, eggs: str = 'eggs') -> str:
+    print("Annotations:", f.__annotations__)
+    print("Arguments:", ham, eggs)
+    return ham + ' and ' + eggs
