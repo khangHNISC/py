@@ -1,8 +1,5 @@
 import unittest
-import copy
 from unittest import TestCase
-
-from Car import Car
 
 
 class TestList(TestCase):
@@ -41,8 +38,8 @@ class TestListMethod(TestList):
         self.assertEqual(self.fruits, ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple'])
 
     def test_copy(self):
+        pass
 
-       pass
 
 if __name__ == '__main__':
     unittest.main()
