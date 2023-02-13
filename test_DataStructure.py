@@ -1,14 +1,17 @@
 import unittest
+from collections import deque
 from unittest import TestCase
 
 
-class TestList(TestCase):
+class Test(TestCase):
     def setUp(self):
         self.fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
+        self.stack = [3, 4, 5]
+        self.queue = deque(["Eric", "John", "Michael"])
 
 
-class TestListMethod(TestList):
-
+class TestListMethod(Test):
+    # mutable squence
     def test_count(self):
         self.assertEqual(self.fruits.count('apple'), 2)
         self.assertEqual(self.fruits.count('tangerine'), 0)
@@ -39,6 +42,35 @@ class TestListMethod(TestList):
 
     def test_copy(self):
         pass
+
+
+class TestStackMethod(Test):
+
+    def test_append(self):
+        self.stack.append(6)
+        self.assertEqual(self.stack, [3, 4, 5, 6])
+
+    def test_pop(self):
+        self.stack.pop()
+        self.assertEqual(self.stack, [3, 4])
+
+
+class TestQueueMethod(Test):
+
+    def test_append(self):
+        self.queue.append("Terry")
+        self.assertEqual(self.queue, deque(["Eric", "John", "Michael", "Terry"]))
+
+    def test_pop_left(self):
+        self.queue.popleft()
+        self.assertEqual(self.queue, deque(["John", "Michael"]))
+
+
+class TestTuple(Test):
+    def test_tuple(self):
+        # sequence are immutable
+        t = 1, 2, 3
+        self.assertEqual(t, (1, 2, 3))
 
 
 if __name__ == '__main__':

@@ -3,7 +3,7 @@ from unittest import TestCase
 
 
 class TestAssignment(TestCase):
-
+    # in python everything is a form of object
     def test_assignment_int(self):
         a = 1
         b = a
@@ -19,7 +19,7 @@ class TestAssignment(TestCase):
         self.assertNotEqual(id(a), id(b))
 
     def test_assignment_object(self):
-        a = Obj()
+        a = ArbitraryObj()
         b = a
         self.assertEqual(id(a), id(b))
         b.x = 2
@@ -27,7 +27,7 @@ class TestAssignment(TestCase):
         self.assertEqual(id(a), id(b))
 
 
-class Obj:
+class ArbitraryObj:
     def __init__(self):
         self.x = 1
 
