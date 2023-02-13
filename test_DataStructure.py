@@ -8,6 +8,8 @@ class Test(TestCase):
         self.fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
         self.stack = [3, 4, 5]
         self.queue = deque(["Eric", "John", "Michael"])
+        self.set = {'apple', 'orange', 'apple', 'pear', 'orange', 'banana'}
+        self.dict = {'jack': 4098, 'sape': 4139}
 
 
 class TestListMethod(Test):
@@ -71,6 +73,27 @@ class TestTuple(Test):
         # sequence are immutable
         t = 1, 2, 3
         self.assertEqual(t, (1, 2, 3))
+        # unpack
+        x, y, z = t
+        self.assertEqual(x, 1)
+
+
+class TestSet(Test):
+
+    def test_set_in(self):
+        self.assertIn('apple', self.set)
+
+    def test_add(self):
+        self.set.add('abracadabra')
+        self.assertIn('abracadabra', self.set)
+
+
+class TestDict(Test):
+
+    def test_in(self):
+        self.assertIn('jack', list(self.dict))
+        self.dict['irv'] = 4127
+        self.assertIn('irv', list(self.dict))
 
 
 if __name__ == '__main__':
